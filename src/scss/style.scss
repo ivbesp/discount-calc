@@ -1,2 +1,245 @@
 //@import "reset";
 @import "font-awesome";
+
+/*main blocks*/
+
+html {
+  height      : 100%;
+  font-size   : 10px;
+  font-family : Helvetica, Arial, Sans-Serif;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  height     : 100%;
+  min-height : 100%;
+  box-sizing : border-box;
+}
+
+h1 {
+  font-size   : 2.4rem;
+  line-height : 4.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+input[type="text"] {
+  border      : 2px solid black;
+  font-weight : bold;
+  height      : 24px;
+  padding     : 0 5px;
+}
+
+.content {
+  max-width         : 760px;
+  width             : 100%;
+  min-width         : 420px;
+  height            : auto;
+  margin            : 0 auto;
+  padding           : 0 15px;
+}
+
+@media screen and (max-width: 760px) {
+  .content {
+    display : block;
+    width   : 500px;
+  }
+}
+
+
+
+
+
+/*note*/
+
+.b-note {
+  position            : relative;
+  padding             : 16px 20px;
+  line-height         : 26px;
+  border              : 1px solid gray;
+}
+
+.b-note:after {
+  content             : "";
+  display             : block;
+  position            : absolute;
+  bottom              : -10px;
+  left                : 0;
+  width               : 100%;
+  height              : 10px;
+  background          : linear-gradient(-45deg, #fef7af 47%, gray 4%, transparent 49%),
+                        linear-gradient(45deg, #fef7af 47%, gray 4%, transparent 49%);
+  background-size     : 20px 20px;
+  background-position : 16px -1px;
+  transform           : rotate(180deg);
+}
+
+
+
+
+
+/*button*/
+
+.b-btn {
+  display          : inline-block;
+  padding          : 5px 20px;
+  background-color : #E6E6E6;
+  font-size        : 1.6rem;
+  text-align       : center;
+  border           : 2px solid black;
+  border-radius    : 8px;
+  font-weight      : bold;
+  text-decoration  : none;
+  color            : black;
+  transition       : 0.2s;
+  box-shadow       : none;
+}
+
+.b-btn:hover {
+  background-color : #F7F7F7;
+
+}
+.b-btn:active{
+  box-shadow : inset 2px 1px 1px grey;
+}
+
+
+
+
+
+/*hr*/
+
+.hr {
+  max-width : 500px;
+  width     : 100%;
+  border    : 1px solid black;
+}
+
+
+
+
+
+/*блок формы*/
+
+.b-form {
+  width  : 100%;
+  margin : 0 0 10px 0;
+}
+
+.b-form__left {
+  width          : 100%;
+  max-width      : 500px;
+  display        : inline-block;
+  vertical-align : top;
+  margin         : 20px 40px 0 0;
+}
+
+.b-form__right {
+  width          : 100%;
+  max-width      : 206px;
+  display        : inline-block;
+  vertical-align : top;
+  margin         : 20px 0 0 0;
+}
+
+@media screen and (max-width: 760px) {
+  .b-form__right {
+    display   : block;
+    max-width : 500px;
+    margin    : 20px 0 20px 0;
+  }
+}
+
+.b-form__table {
+  font-size       : 1.6rem;
+  border-collapse : separate;
+  text-align      : left;
+  border-spacing  : 8px 4px;
+
+}
+
+.b-table__price{
+  width: 70px;
+}
+
+.b-table__input-price{
+  width: 70px;
+}
+
+
+
+
+
+/*cart*/
+
+.b-cart {
+  width      : 100%;
+  min-height : 505px;
+  margin     : 10px 0 10px 0;
+}
+
+.b-cart__left {
+  width          : 100%;
+  max-width      : 500px;
+  display        : inline-block;
+  vertical-align : top;
+  margin         : 20px 40px 0 0;
+}
+
+.b-cart__right {
+  width          : 100%;
+  max-width      : 206px;
+  display        : inline-block;
+  vertical-align : top;
+  margin         : 20px 0 0 0;
+}
+
+@media screen and (max-width: 760px) {
+  .b-cart__right {
+    display   : block;
+    max-width : 500px;
+    margin    : 20px 0 20px 0;
+  }
+}
+
+.b-cart__table {
+  width            : 100%;
+  font-size        : 1.6em;
+  border           : 1px solid black;
+  background-color : white;
+  text-align       : left;
+  margin           : 16px 0;
+}
+
+.b-cart__table th {
+  border           : 1px solid black;
+  height           : 36px;
+  background-color : #cccccc;
+  vertical-align   : middle;
+  padding          : 0 5px;
+}
+
+.b-cart__table td {
+  border         : 1px solid black;
+  height         : 36px;
+  vertical-align : middle;
+  padding        : 0 5px
+}
+
+.b-cart__table tr:nth-child(2n+1){
+  background: #ececec;
+}
+
+.b-discount{
+  font-size: 1.6rem;
+}
+
+.b-discount__value{
+  width: 30px;
+  color: #c0c0c0;
+}
