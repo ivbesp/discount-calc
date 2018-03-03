@@ -36,12 +36,17 @@ input[type="text"] {
 }
 
 .content {
-  max-width         : 760px;
-  width             : 100%;
-  min-width         : 420px;
-  height            : auto;
-  margin            : 0 auto;
-  padding           : 0 15px;
+  max-width           : 760px;
+  width               : 100%;
+  min-width           : 420px;
+  height              : auto;
+  margin              : 0 auto;
+  padding             : 0 15px;
+  background          : url('./../img/backgrounds/squared-paper.jpg');
+  background-repeat   : repeat;
+  background-size     : 650px;
+  background-position : top left;
+
 }
 
 @media screen and (max-width: 760px) {
@@ -59,9 +64,13 @@ input[type="text"] {
 
 .b-note {
   position            : relative;
-  padding             : 16px 20px;
+  padding             : 12px 20px;
   line-height         : 26px;
   border              : 1px solid gray;
+  background          : url('./../img/backgrounds/note-paper.jpeg');
+  background-size     : 520px;
+  background-position : top right;
+
 }
 
 .b-note:after {
