@@ -9,7 +9,7 @@ export default class Form extends React.Component {
         this.state =
             {
                 prodName: '',
-                prodPrice: ''
+                prodPrice: 0
             };
         this.handleProdNameChange= this.handleProdNameChange.bind(this);
         this.handleProdPriceChange= this.handleProdPriceChange.bind(this);
@@ -21,7 +21,7 @@ export default class Form extends React.Component {
         this.setState({prodName: e.target.value});
     }
     handleProdPriceChange(e){
-        this.setState({prodPrice: e.target.value});
+        this.setState({prodPrice: Number(e.target.value)});
     }
     handleClick(e) {
         e.preventDefault();

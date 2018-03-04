@@ -30,13 +30,13 @@ export default class Discount extends React.Component {
 
         return (
 
-            <div className="b-discount">Применить скидку
+            <div className="b-discount"><span>Применить скидку </span>
                 <input className="b-discount__value"
-                       type="text"
+                       type="number"
                        value={this.state.discount}
                        onChange={this.handleChange}
                 />
-                 рублей
+                <span> рублей </span>
                 <a className="b-btn" href="#" onClick={this.handleClick}>Применить</a>
             </div>
 

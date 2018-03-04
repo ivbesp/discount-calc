@@ -7,29 +7,56 @@ export default class Cart extends React.Component {
 
     constructor(props){
         super(props);
-        this.calcDiscountPrice=this.calcDiscountPrice.bind(this)
+        this.calcDiscounts=this.calcDiscounts.bind(this);
     }
 
-    //рассчитать цену со скидкой для одного товара
-    calcDiscountPrice(price){
-        let sum_price = this.props.items.reduce(function(sum, current){
-            return sum + current.price;
+    calcDiscounts(items){
+        let discount = this.props.discount;
+        console.log(discount)
+        let prices = items.map(function(item,i){
+            return item.price;
+        });
+
+        let sum_price = prices.reduce(function(sum, current){
+            return sum+current;
         }, 0);
-        let proportion = this.props.discount/sum_price;
-        let discount = price*proportion;
-        let discount_price = price - discount;
-        return discount_price;
+
+        let piecePrice = sum_price/100;
+        let pieceDiscount = this.props.discount/100;
+
+        let max_price = Math.max.apply(null, prices);
+        var temp_discount = 0;
+
+        let discounts = prices.map(function(item,i){
+            if (item != max_price){
+                let propPrice = item/piecePrice;
+                let discount = propPrice*pieceDiscount;
+                temp_discount +=Math.round(discount);
+                return Math.round(item-discount);
+            } else{
+                return item - (discount - temp_discount);
+            }
+        });
+        return discounts;
     }
 
     render() {
         let {items} = this.props;
+        items = items.sort(function(a,b){
+            return a.price>b.price;
+        });
+        console.log(items)
+        let discounts = this.calcDiscounts(items);
+        items = items.map(function(item,i){
+            return Object.assign({}, item, {dprice: discounts[i]});
+        });
         let note_text = 'Скидка для каждой позиции рассчитывается пропорционально цене товара. Скидка всегда в рублях без копеек. Сумма скидок по каждому товару всегда точно равна общей суммы. При округлении остаток суммы применяется к самому дорогому товару в корзине.';
         let tablerows = items.map((item, i) =>{
             return (
                 <tr key={i}>
                     <td>{item.name}</td>
                     <td>{item.price}</td>
-                    <td>{this.calcDiscountPrice(item.price)}</td>
+                    <td>{item.dprice}</td>
                 </tr>
 
             )
