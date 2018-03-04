@@ -4,24 +4,23 @@ import InitialState from './initialstate';
 * Reducers
 * */
 
+//редьюсер работы с товарами
+export const cart = (state = InitialState.cart, action) => {
 
-//categories reducer
-
-export const categories = (state = InitialState.categories, action) => {
-    let obj={};
     switch(action.type) {
-        case 'ADD_CATEGORY':
-            return state.concat(
-                {
-                    id: action.id,
-                    category_name: action.name,
-                    category_enc: action.enc,
-                    temp: action.temp
-                }
-            );
+        case 'ADD_ITEM':
+            return state.concat(action.item);
         default:
             return state;
     }
 };
 
-//* reducer
+//редьюсер работы с cкидкой
+export const discount = (state = InitialState.discount, action) => {
+    switch(action.type) {
+        case 'SET_DISCOUNT':
+            return action.discount;
+        default:
+            return state;
+    }
+};

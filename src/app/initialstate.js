@@ -1,19 +1,21 @@
 const InitialState = {
 
-    categories:
+    cart:
         [
             {
-                id              : 1,
-                category_name   :'Продукты',
-                category_enc    :'#products',
-                temp            : true
+                name: 'Телефон',
+                price: 100
             },
             {
-                id              : 2,
-                category_name   :'Магазины',
-                category_enc    :'#shops',
-                temp            : false
+                name: 'магнитофон',
+                price: 200
+            },
+            {
+                name: 'Миелофон',
+                price: 400
             }
-        ]
+
+        ],
+    discount: 7
 };
 export default InitialState;

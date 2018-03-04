@@ -2,13 +2,20 @@
  * Action creators
  * */
 
-//categories actions
-export const addCategory = (id, text, enc='#', temp=false) => ({
-    type: 'ADD_CATEGORY',
-    id: id,
-    name: text,
-    enc: enc,
-    temp:temp
+
+
+// items actions
+export const addItem = (name, price) => ({
+    type: 'ADD_ITEM',
+    item:{
+        name: name,
+        price: price
+    }
+
 });
 
-// * actions
+// discount actions
+export const setDiscount = (value) => ({
+    type: 'SET_DISCOUNT',
+    discount: value
+});

@@ -9,6 +9,7 @@ const App = (props) => {
         <div className='content'>
             {/* Вывод дочерних компонентов */}
             {props.children}
+
         </div>
     )
 };
