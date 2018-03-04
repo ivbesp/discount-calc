@@ -58,7 +58,9 @@ export default class Form extends React.Component {
                                 </td>
                                 <td>
                                     <input className="b-table__input-price"
-                                           type="text"
+                                           type="number"
+                                           step="100"
+                                           min="0"
                                            value={this.state.ProdPrice}
                                            onChange={this.handleProdPriceChange}
                                     />

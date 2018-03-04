@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Note from './Note';
+import Discount from './Discount';
 
 
 export default class Cart extends React.Component {
@@ -12,7 +13,6 @@ export default class Cart extends React.Component {
 
     calcDiscounts(items){
         let discount = this.props.discount;
-        console.log(discount)
         let prices = items.map(function(item,i){
             return item.price;
         });
@@ -33,7 +33,7 @@ export default class Cart extends React.Component {
                 let discount = propPrice*pieceDiscount;
                 temp_discount +=Math.round(discount);
                 return Math.round(item-discount);
-            } else{
+            } else {
                 return item - (discount - temp_discount);
             }
         });
@@ -42,24 +42,27 @@ export default class Cart extends React.Component {
 
     render() {
         let {items} = this.props;
+
         items = items.sort(function(a,b){
             return a.price>b.price;
         });
-        console.log(items)
+
         let discounts = this.calcDiscounts(items);
+
         items = items.map(function(item,i){
             return Object.assign({}, item, {dprice: discounts[i]});
         });
-        let note_text = 'Скидка для каждой позиции рассчитывается пропорционально цене товара. Скидка всегда в рублях без копеек. Сумма скидок по каждому товару всегда точно равна общей суммы. При округлении остаток суммы применяется к самому дорогому товару в корзине.';
-        let tablerows = items.map((item, i) =>{
-            return (
-                <tr key={i}>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>{item.dprice}</td>
-                </tr>
 
-            )
+        let note_text = 'Скидка для каждой позиции рассчитывается пропорционально цене товара. Скидка всегда в рублях без копеек. Сумма скидок по каждому товару всегда точно равна общей суммы. При округлении остаток суммы применяется к самому дорогому товару в корзине.';
+
+        let tablerows = items.map((item, i) =>{
+                return (
+                    <tr key={i}>
+                        <td>{item.name}</td>
+                        <td>{item.price}</td>
+                        <td>{item.dprice}</td>
+                    </tr>
+                )
             }
         );
 
@@ -80,7 +83,7 @@ export default class Cart extends React.Component {
                             {tablerows}
                         </tbody>
                     </table>
-
+                    <Discount currentDiscount={this.props.discount} setDiscount={this.props.setDiscount}/>
                 </div>
                 <div className="b-cart__right">
                     <Note text={note_text}/>

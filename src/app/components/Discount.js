@@ -33,6 +33,8 @@ export default class Discount extends React.Component {
             <div className="b-discount"><span>Применить скидку </span>
                 <input className="b-discount__value"
                        type="number"
+                       step="1"
+                       min="0"
                        value={this.state.discount}
                        onChange={this.handleChange}
                 />

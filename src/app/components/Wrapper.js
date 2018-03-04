@@ -47,11 +47,10 @@ class Wrapper extends React.Component {
 
     render() {
         return(
-                <div className="content">
+                <div>
                     <Form addItem={this.addItem}/>
                     <Hr/>
-                    <Cart items={this.props.cart} discount={this.props.discount}/>
-                    <Discount currentDiscount={this.props.discount} setDiscount={this.setDiscount}/>
+                    <Cart items={this.props.cart} discount={this.props.discount} setDiscount={this.setDiscount}/>
                 </div>
             )
     }

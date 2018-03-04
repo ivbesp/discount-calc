@@ -7,7 +7,7 @@ const InitialState = {
                 price: 100
             },
             {
-                name: 'магнитофон',
+                name: 'Магнитофон',
                 price: 200
             },
             {
@@ -18,4 +18,5 @@ const InitialState = {
         ],
     discount: 7
 };
+
 export default InitialState;
