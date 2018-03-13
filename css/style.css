@@ -2366,7 +2366,7 @@ input {
   height: auto;
   margin: 0 auto;
   padding: 0 15px;
-  background: url("./../img/backgrounds/squared-paper.jpg");
+  background: url("./../img/squared-paper.jpg");
   background-repeat: repeat;
   background-size: 650px;
   background-position: top left; }
@@ -2382,7 +2382,7 @@ input {
   padding: 12px 20px;
   line-height: 26px;
   border: 1px solid gray;
-  background: url("./../img/backgrounds/note-paper.jpeg");
+  background: url("./../img/note-paper.jpeg");
   background-size: 520px;
   background-position: top right; }
 
